@@ -104,7 +104,7 @@ public:
         pchMessageStart[1] = 0x11;
         pchMessageStart[2] = 0x31;
         pchMessageStart[3] = 0x45;
-        vAlertPubKey = ParseHex("0489eb2ea37c7a27f823e66cab394e7791f07a099b070d6e4df5dc8631674db821e850a390f649f6c2a8b6c463f87a26311f5b2d2e70f5f5c29735b2e44796e4c6");
+        vAlertPubKey = ParseHex("049f92efbcb0dc76a0814e9e2da50c6c0a5d04bd484211b22a696e77b25b1eb4c1f7c28cc9088b9758a9ed9ee2e97d655176abd55f23782e848271363d3740af9c");
         nDefaultPort = 60203;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Nuyul starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
@@ -118,7 +118,7 @@ public:
         nMaturity = 120;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 500000000 * COIN; //500,000,000
-        
+
         /** Height or Time Based Activations **/
         nLastPOWBlock = 800;
         nModifierUpdateBlock = 999999999;
@@ -129,7 +129,7 @@ public:
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1; //First block that bad serials emerged
         nBlockLastGoodCheckpoint = ~1; //Last valid accumulator checkpoint
-        
+
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
@@ -140,31 +140,40 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Nuyul will take over the world version tree - 2019.";
+        const char* pszTimestamp = "Nuyul President of Mars - 2019";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 250 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04cc7a04fd884379cbc95e5ace8e4c9469c67dfab11cdcc2e086e1d132a5f236a1fb8c50d92d25721dc48cc5645897fba1e1b76ea500a40ec899d33139addece02") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04bd3a3251bf7055997a18c598240cea565a4182b5827ca17ef091486f11fd0d54480e1a243b90763f6176f791dbbff276134ba62da208792a6cc3507de27a5199") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1526741800;  //seconds since Jan 01 1970. (UTC)
+        genesis.nTime = 1526754044;  //05/19/2018 @ 6:20pm (UTC)
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0x1603a;
+        genesis.nNonce = 0xcd50;
+
+
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000c538b85459da3c95784aa4f11a5b0aaafb7eed142d2649b81630982b3b93"));
-        assert(genesis.hashMerkleRoot == uint256("92ccc141fab46111d346397b7adab122a6cf888ada6b561e016ac1d23eccb4bf"));
-        
+        assert(hashGenesisBlock == uint256("0000d0530fea2c30babc8126b633a5bf52e9e46dd1ac2750a2307f55c4c3e49c"));
+        assert(genesis.hashMerkleRoot == uint256("f3bbd53aece042dbbd90b214415c308bc28c0f2594a1ac8a004dfb35f63f2e78"));
+
         vSeeds.push_back(CDNSSeedData("nuyul.com", "seed.nuyul.com"));
         vSeeds.push_back(CDNSSeedData("nuyul.com", "seed2.nuyul.com"));
         vSeeds.push_back(CDNSSeedData("nuyul.com", "seed3.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed4.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed5.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed6.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed7.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed8.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed9.nuyul.com"));
+        vSeeds.push_back(CDNSSeedData("nuyul.com", "seed10.nuyul.com"));
         vSeeds.push_back(CDNSSeedData("nuyul.cc", "explorer.nuyul.cc"));
-        
-        
+
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 78);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 53);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);
@@ -172,10 +181,10 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         //     BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0xbc).convert_to_container<std::vector<unsigned char> >();
-        
-        
+
+
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
-        
+
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
         fAllowMinDifficultyBlocks = false;
@@ -185,12 +194,12 @@ public:
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
-        
+
         nPoolMaxTransactions = 3;
         strSporkKey = "0464b1f34052a9fa87d18516fd97bfd70ed78a3424d59e9b9ffa9ea7fa35b50d376ec01b0923a2c7a8edfbfd2787247aadea861d4c6d8fb5814b708ddfb153aafc";
         strObfuscationPoolDummyAddress = "﻿YVvzknF2HHLs9BjzJw6cQfyzhJHu9t6gh5";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
-        
+
         /** Zerocoin */
         zerocoinModulus = "c95577b6dce0049b0a20c779af38079355abadde1a1d80c353f6cb697a7ae5a087bad39caa5798478551d0f9d91e6267716506f32412de1d19d17588765eb9502b85c6a18abdb05791cfd8b734e960281193705eeece210920cc922b3af3ceb178bf12c22eb565d5767fbf19545639be8953c2c38ffad41f3371e4aac750ac2d7bd614b3faabb453081d5d88fdbb803657a980bc93707e4b14233a2358c97763bf28f7c933206071477e8b371f229bc9ce7d6ef0ed7163aa5dfe13bc15f7816348b328fa2c1e69d5c88f7b94cee7829d56d1842d77d7bb8692e9fc7b7db059836500de8d57eb43c345feb58671503b932829112941367996b03871300f25efb5";
         nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
@@ -201,7 +210,7 @@ public:
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
-    
+
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
         return data;
@@ -223,7 +232,7 @@ public:
         pchMessageStart[1] = 0x63;
         pchMessageStart[2] = 0x69;
         pchMessageStart[3] = 0x78;
-        vAlertPubKey = ParseHex("04cc7a04fd884379cbc95e5ace8e4c9469c67dfab11cdcc2e086e1d132a5f236a1fb8c50d92d25721dc48cc5645897fba1e1b76ea500a40ec899d33139addece02");
+        vAlertPubKey = ParseHex("04bd3a3251bf7055997a18c598240cea565a4182b5827ca17ef091486f11fd0d54480e1a243b90763f6176f791dbbff276134ba62da208792a6cc3507de27a5199");
         nDefaultPort = 40001;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
