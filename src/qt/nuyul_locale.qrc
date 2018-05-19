@@ -1,0 +1,30 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/nuyul_bg.qm</file>
+        <file alias="ca">locale/nuyul_ca.qm</file>
+        <file alias="cs">locale/nuyul_cs.qm</file>
+        <file alias="da">locale/nuyul_da.qm</file>
+        <file alias="de">locale/nuyul_de.qm</file>
+        <file alias="en">locale/nuyul_en.qm</file>
+        <file alias="en_US">locale/nuyul_en_US.qm</file>
+        <file alias="es">locale/nuyul_es.qm</file>
+        <file alias="fi">locale/nuyul_fi.qm</file>
+        <file alias="fr_FR">locale/nuyul_fr_FR.qm</file>
+        <file alias="hr">locale/nuyul_hr.qm</file>
+        <file alias="it">locale/nuyul_it.qm</file>
+        <file alias="ja">locale/nuyul_ja.qm</file>
+        <file alias="ko_KR">locale/nuyul_ko_KR.qm</file>
+        <file alias="nl">locale/nuyul_nl.qm</file>
+        <file alias="pl">locale/nuyul_pl.qm</file>
+        <file alias="pt">locale/nuyul_pt.qm</file>
+        <file alias="pt_BR">locale/nuyul_pt_BR.qm</file>
+        <file alias="ro_RO">locale/nuyul_ro_RO.qm</file>
+        <file alias="ru">locale/nuyul_ru.qm</file>
+        <file alias="sk">locale/nuyul_sk.qm</file>
+        <file alias="sv">locale/nuyul_sv.qm</file>
+        <file alias="tr">locale/nuyul_tr.qm</file>
+        <file alias="uk">locale/nuyul_uk.qm</file>
+        <file alias="zh_CN">locale/nuyul_zh_CN.qm</file>
+        <file alias="zh_TW">locale/nuyul_zh_TW.qm</file>
+    </qresource>
+</RCC>

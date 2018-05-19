@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nuyul
+Comment=Nuyul P2P Cryptocurrency
+Comment[fr]=Nuyul, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Nuyul, eşten eşe kriptografik sanal para birimi
+Exec=nuyul-qt %u
+Terminal=false
+Type=Application
+Icon=nuyul128
+MimeType=x-scheme-handler/nuyul;
+Categories=Office;Finance;

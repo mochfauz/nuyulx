@@ -1,0 +1,26 @@
+# /etc/conf.d/nuyuld: config file for /etc/init.d/nuyuld
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/nuyul/nuyul.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/nuyuld"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/nuyuld.pid"
+
+# Where to write nuyuld data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/nuyuld"
+
+# User and group to own nuyuld process
+#BITCOIND_USER="nuyul"
+#BITCOIND_GROUP="nuyul"
+
+# Path to nuyuld executable
+#BITCOIND_BIN="/usr/bin/nuyuld"
+
+# Nice value to run nuyuld under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
